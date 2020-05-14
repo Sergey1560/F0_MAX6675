@@ -23,6 +23,8 @@ void RCC_init(void){
 	RCC->CFGR |= (uint32_t)RCC_CFGR_SW_PLL;
 	while ((RCC->CFGR & (uint32_t)RCC_CFGR_SWS) != (uint32_t)0x08) {};
 
+	RCC->CFGR3 |= RCC_CFGR3_USBSW_PLLCLK;
+
 	SystemCoreClockUpdate();
 	INFO("SystemCoreClock: %d",SystemCoreClock);
 }

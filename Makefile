@@ -3,7 +3,7 @@ TARGET = firmware
 # debug build?
 DEBUG = 1 
 # optimization
-OPT = -O0 -g -Wall -fstack-usage -Wstack-usage=2048
+OPT = -O2 -g -Wall -fstack-usage -Wstack-usage=2048
 # Build path
 BUILD_DIR = build
 
@@ -24,6 +24,7 @@ Lib/CMSIS/src/system_stm32f0xx.c
 ASM_SOURCES =  \
 Startup/startup_stm32f072xb.s \
 Lib/Segger/SEGGER_RTT_ASM_ARMv7M.s
+
 
 GCC_PATH = /home/sergey/soft/gcc-arm-none-eabi-9-2019-q4-major/bin
 
@@ -59,6 +60,8 @@ C_INCLUDES =  \
 -ISrc \
 -IStartup
 
+include hal.mk
+include usb.mk
 
 # compile gcc flags
 ASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections 
