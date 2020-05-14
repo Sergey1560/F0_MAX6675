@@ -1,0 +1,23 @@
+
+OpenDocument="main.c", FilePath="/home/sergey/Projects/STM32/F072/MAX6675/Src/main.c", Line=12
+OpenDocument="cmsis_gcc.h", FilePath="/home/sergey/Projects/STM32/F072/MAX6675/Lib/CMSIS/inc/cmsis_gcc.h", Line=367
+OpenDocument="startup_stm32f072xb.s", FilePath="/home/sergey/Projects/STM32/F072/MAX6675/Startup/startup_stm32f072xb.s", Line=44
+OpenDocument="system_stm32f0xx.c", FilePath="/home/sergey/Projects/STM32/F072/MAX6675/Lib/CMSIS/src/system_stm32f0xx.c", Line=305
+OpenDocument="nrf24.c", FilePath="/home/sergey/Projects/STM32/F072/Radio_Car_Sender/Lib/Mylib/nrf24.c", Line=398
+OpenToolbar="Debug", Floating=0, x=0, y=0
+OpenWindow="Registers 1", DockArea=RIGHT, x=0, y=0, w=429, h=489, FilterBarShown=0, ToolBarShown=0, FilteredItems=[], RefreshRate=1
+OpenWindow="Disassembly", DockArea=LEFT, x=0, y=0, w=398, h=472, FilterBarShown=0, ToolBarShown=0, ExecCountersShown=0, InstEncodingsShown=0
+OpenWindow="Source", x=0, y=0, w=0, h=0, FilterBarShown=0, ToolBarShown=0, ExecCountersShown=0
+OpenWindow="Memory 1", DockArea=BOTTOM, x=1, y=0, w=452, h=271, FilterBarShown=0, ToolBarShown=0, EditorAddress=0x20000520
+OpenWindow="Watched Data", DockArea=BOTTOM, x=2, y=0, w=529, h=271, FilterBarShown=0, ToolBarShown=0
+OpenWindow="Functions", DockArea=LEFT, x=0, y=0, w=398, h=472, FilterBarShown=1, ToolBarShown=0
+OpenWindow="Terminal", DockArea=BOTTOM, x=0, y=0, w=545, h=271, FilterBarShown=0, ToolBarShown=0
+TableHeader="Functions", SortCol="Name", SortOrder="ASCENDING", VisibleCols=["Name";"Address";"Size";"#Insts";"Source"], ColWidths=[213;69;48;57;203]
+TableHeader="Watched Data", SortCol="Expression", SortOrder="ASCENDING", VisibleCols=["Expression";"Value";"Location";"Refresh"], ColWidths=[156;172;117;84]
+TableHeader="Power Sampling", SortCol="Index", SortOrder="ASCENDING", VisibleCols=["Index";"Time";"Ch 0"], ColWidths=[100;100;100]
+TableHeader="Registers 1", SortCol="Name", SortOrder="ASCENDING", VisibleCols=["Name";"Value";"Description"], ColWidths=[232;195;259]
+TableHeader="RegisterSelectionDialog", SortCol="Name", SortOrder="ASCENDING", VisibleCols=["Auto";"Name";"Address";"Description"], ColWidths=[27;27;27;27]
+WatchedExpression="data"
+WatchedExpression="hf_exit"
+WatchedExpression="HardFaultRegs"
+WatchedExpression="len"

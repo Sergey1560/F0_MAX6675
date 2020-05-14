@@ -1,0 +1,53 @@
+#include "spi.h"
+
+uint16_t spi_send(void){
+    uint16_t ret_val;    
+    
+    while((SPI1->SR & SPI_SR_TXE) == 0){};
+    SPI1_DR_16b = 0xFFFF;
+    
+    while((SPI1->SR & SPI_SR_RXNE) == 0){};
+    ret_val = SPI1_DR_16b ;
+    
+    return ret_val;
+};
+
+
+void spi_init(void){
+
+	RCC->AHBENR |= RCC_AHBENR_GPIOAEN;
+	RCC->APB2ENR |= RCC_APB2ENR_SPI1EN;
+
+	//CS PA4
+	GPIOA->MODER &= ~GPIO_MODER_MODER4;
+    GPIOA->MODER |= GPIO_MODER_MODER4_0; //Out
+	
+    GPIOA->OTYPER &= ~GPIO_OTYPER_OT_4; //Push-pull
+	
+    GPIOA->OSPEEDR &= ~GPIO_OSPEEDER_OSPEEDR4;
+    GPIOA->OSPEEDR |= S_VH << GPIO_OSPEEDR_OSPEEDR4_Pos; 
+	
+    GPIOA->PUPDR &= ~GPIO_PUPDR_PUPDR4;
+    //GPIOA->PUPDR |= GPIO_PUPDR_PUPDR4_0; //Pull_UP
+    MAX6675_CS_H;
+
+	//SPI1: MOSI: PA7   SCK: PA5  MISO: PA6
+    GPIOA->MODER &= ~(GPIO_MODER_MODER5|GPIO_MODER_MODER6|GPIO_MODER_MODER7);
+	GPIOA->MODER |= (GPIO_MODER_MODER5_1|GPIO_MODER_MODER6_1|GPIO_MODER_MODER7_1); //Alternate
+    
+    GPIOA->OSPEEDR &= ~(GPIO_OSPEEDER_OSPEEDR5|GPIO_OSPEEDER_OSPEEDR6|GPIO_OSPEEDER_OSPEEDR7);
+    GPIOA->OSPEEDR |= (S_VH << GPIO_OSPEEDR_OSPEEDR5_Pos)|(S_VH << GPIO_OSPEEDR_OSPEEDR6_Pos)|(S_VH << GPIO_OSPEEDR_OSPEEDR7_Pos); //Very High
+    
+    GPIOA->AFR[0] &= ~(GPIO_AFRL_AFRL5|GPIO_AFRL_AFRL6|GPIO_AFRL_AFRL7);  
+
+	//SPI1 
+    SPI1->CR1 = SPI_CR1_SSI|\
+                SPI_CR1_SSM|\
+                (3 << SPI_CR1_BR_Pos)|\
+	            SPI_CR1_MSTR;
+
+	SPI1->CR2 = (15 << SPI_CR2_DS_Pos);  
+
+	SPI1->CR1 |= SPI_CR1_SPE;
+}
+

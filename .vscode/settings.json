@@ -1,0 +1,11 @@
+{
+    "cortex-debug.armToolchainPath": "/home/sergey/soft/gcc-arm-none-eabi-8-2018-q4-major/bin",
+    "cortex-debug.openocdPath": "/usr/bin/openocd",
+    "files.associations": {
+        "main.h": "c",
+        "log.h": "c",
+        "stm32f0xx.h": "c",
+        "timer.h": "c",
+        "nrf24.h": "c"
+    }
+}
