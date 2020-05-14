@@ -2,3 +2,6 @@
 .vscode/.cortex-debug.*
 .vscode/ipch/
 
+Python/__pycache__
+Python/*.log
+Python/*.png

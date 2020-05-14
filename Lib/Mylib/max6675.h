@@ -4,7 +4,7 @@
 #include "spi.h"
 
 
-#define LOW_PASS_K  (float)0.3
+#define LOW_PASS_K  (float)0.2
 
 
 typedef struct {
