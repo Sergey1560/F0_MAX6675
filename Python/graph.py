@@ -45,11 +45,11 @@ def plot_graf(filename):
     liq_x = [0,800]
     liq_y = [217,217]
 
-    plt.title("STD warm-up") # заголовок
+    plt.title("MAX6675 Graph") # заголовок
     plt.xlabel("Time, sec") # ось абсцисс
     plt.ylabel("Temp, C") # ось ординат
 
-    plt.axis([0, 180, 18, 30])
+    plt.axis([0, maxindex, 18, 30])
 
     ax = plt.gca()
     ax.yaxis.grid(True)
@@ -77,8 +77,8 @@ def plot_graf(filename):
     # Установим локатор для главных меток
     #ax.xaxis.set_major_locator (locatorx)
     #ax.yaxis.set_major_locator (locatory)
-    plt.plot(x, y,label = 'Filtred')  # построение графика
-    plt.plot(x2,y2,label = 'Raw',linestyle = 'dashed')
+    plt.plot(x, y,label = 'LP Filter')  # построение графика
+    plt.plot(x2,y2,label = 'Raw data',linestyle = 'dashed')
 
     #plt.plot(liq_x,liq_y,color='red',label = 'liquidus',linestyle = 'dashed')
 
